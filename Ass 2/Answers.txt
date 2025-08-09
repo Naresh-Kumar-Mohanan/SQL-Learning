@@ -1,0 +1,40 @@
+1.WAQTD NAME OF THE EMPLOYEE ALONG WITH THEIR ANNUAL SALARY.
+Ans :
+	SELECT ENAME,SAL*12 FROM EMP;
+------------------------------------------------------------------------------------------------------
+2.WAQTD ENAME AND JOB FOR ALL THE EMPLOYEE WITH THEIR HALF TERM SALARY.
+Ans :
+	SELECT ENAME,JOB,SAL*6 FROM EMP;
+------------------------------------------------------------------------------------------------------
+3.WAQTD ALL THE DETAILS OF THE EMPLOYEES ALONG WITH AN ANNUALBONUS OF 2000.
+Ans :
+	SELECT EMP.*,2000 AS "ANNUAL BONUS" FROM EMP;
+------------------------------------------------------------------------------------------------------
+4.WAQTD NAME SALARY AND SALARY WITH A HIKE OF 10%.
+Ans :
+	SELECT ENAME,SAL,SAL*0.10 FROM EMP;
+------------------------------------------------------------------------------------------------------
+5.WAQTD NAME AND SALARY WITH DEDUCTION OF 25%.
+Ans :
+	SELECT ENAME,SAL,SAL-SAL*0.25 FROM EMP;
+------------------------------------------------------------------------------------------------------
+6.WAQTD NAME AND SALARY WITH MONTHLY HIKE OF 50.
+Ans :
+	SELECT ENAME,SAL,SAL+50 FROM EMP;
+------------------------------------------------------------------------------------------------------
+7.WAQTD NAME AND ANNUAL SALARY WITH DEDUCTION OF 10%.
+Ans :
+	SELECT ENAME,SAL,SAL*12-SAL*12*0.10 FROM EMP;
+------------------------------------------------------------------------------------------------------
+8.WAQTD TOTAL SALARY GIVEN TO EACH EMPLOYEE (SAL+COMM).
+Ans :
+	SELECT EMP.*,SAL+COMM FROM EMP;
+------------------------------------------------------------------------------------------------------
+9.WAQTD DETAILS OF ALL THE EMPLOYEES ALONG WITH ANNUAL SALARY.
+Ans :
+	SELECT EMP.*,SAL*12 FROM EMP;
+------------------------------------------------------------------------------------------------------
+10.WAQTD NAME AND DESIGNATION ALONG WITH 100 PENALTY IN SALARY.
+Ans :
+	SELECT ENAME,JOB,SAL-100 FROM EMP;
+------------------------------------------------------------------------------------------------------

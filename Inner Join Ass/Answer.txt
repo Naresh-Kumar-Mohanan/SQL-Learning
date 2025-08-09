@@ -1,0 +1,44 @@
+==========================
+ASSIGNMENT ON INNER JOIN :
+==========================
+
+1.NAME OF THE EMPLOYEE AND HIS LOCATION OF ALL THE EMPLOYEES.
+Ans:
+	SELECT EMP.ENAME,DEPT.LOC FROM EMP INNER JOIN DEPT ON EMP.DEPTNO=DEPT.DEPTNO;
+------------------------------------------------------------------------------------------------------
+2.WAQTD DNAME AND SALARY FOR ALL THE EMPLOYEE WORKING IN ACCOUNTING.
+Ans:
+	SELECT DEPT.DNAME,EMP.SAL,EMP.ENAME FROM DEPT INNER JOIN EMP ON EMP.DEPTNO=DEPT.DEPTNO WHERE DEPT.DNAME='ACCOUNTING';
+------------------------------------------------------------------------------------------------------
+3.WAQTD DNAME AND ANNUAL SALARY FOR ALL EMPLOYEES WHOS SALARY IS MORE THAN 2340
+Ans:
+	SELECT EMP.ENAME,EMP.SAL,EMP.SAL*12 AS "ANNUAL SALARY",DEPT.DNAME FROM EMP INNER JOIN DEPT ON EMP.DEPTNO=DEPT.DEPTNO WHERE EMP.SAL>2340;
+------------------------------------------------------------------------------------------------------
+4.WAQTD ENAME AND DNAME FOR EMPLOYEES HAVING CAHARACTER 'A' IN THEIR DNAME
+Ans:
+	SELECT EMP.ENAME, DEPT.DNAME FROM EMP INNER JOIN DEPT ON EMP.DEPTNO=DEPT.DEPTNO WHERE DEPT.DNAME LIKE '%A%';
+------------------------------------------------------------------------------------------------------
+5.WAQTD ENAME AND DNAME FOR ALL THE EMPLOYEES WORKING AS SALESMAN
+Ans:
+	SELECT EMP.ENAME,DEPT.DNAME FROM EMP INNER JOIN DEPT ON EMP.DEPTNO=DEPT.DEPTNO WHERE EMP.JOB='SALESMAN';
+------------------------------------------------------------------------------------------------------
+6.WADTD DNAME AND JOB FOR ALL THE EMPLOYEES WHOS JOB AND DNAME STARTS WITH CHARACTER 'S'
+Ans:
+	SELECT EMP.ENAME,EMP.JOB,DEPT.DNAME FROM EMP INNER JOIN DEPT ON EMP.DEPTNO=DEPT.DEPTNO WHERE EMP.JOB LIKE 'S%' AND DEPT.DNAME LIKE'S%';
+------------------------------------------------------------------------------------------------------
+7.WAQTD DNAME AND MGR NO FOR EMPLOYEES REPORTING TO 7839
+Ans:
+	SELECT EMP.MGR,DEPT.DNAME FROM EMP INNER JOIN DEPT ON EMP.DEPTNO=DEPT.DEPTNO WHERE EMP.MGR=7839;
+------------------------------------------------------------------------------------------------------
+8.WAQTD DNAME AND HIREDATE FOR EMPLOYEES HIRED AFTER 83 INTO ACCOUNTING OR RESEARCH DEPT
+Ans:
+	SELECT EMP.ENAME,EMP.HIREDATE,DEPT.DNAME FROM EMP INNER JOIN DEPT ON EMP.DEPTNO=DEPT.DEPTNO WHERE EMP.HIREDATE>'31-DEC-83' AND DEPT.DNAME IN ('ACCOUNTING','RESEARCH');
+------------------------------------------------------------------------------------------------------
+9.WAQTD ENAME AND DNAME OF THE EMPLOYEES WHO ARE GETTING COMM IN DEPT 10 OR 30
+Ans:
+	SELECT EMP.ENAME,DEPT.DNAME FROM EMP INNER JOIN DEPT ON EMP.DEPTNO=DEPT.DEPTNO WHERE EMP.COMM IN(10,30);
+------------------------------------------------------------------------------------------------------
+10.WAQTD DNAME AND EMPNO FOR ALL THE EMPLOYEES WHO'S EMPNO ARE (7839,7902) AND ARE WORKING IN LOC NEW YORK.
+Ans:
+	SELECT EMP.EMPNO,DEPT.DNAME FROM EMP INNER JOIN DEPT ON EMP.DEPTNO=DEPT.DEPTNO WHERE EMP.EMPNO IN(7839,7902) AND DEPT.LOC='NEW YORK';
+------------------------------------------------------------------------------------------------------

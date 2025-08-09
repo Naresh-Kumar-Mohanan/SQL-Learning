@@ -1,0 +1,260 @@
+===================
+ASSIGNMENT CASE 1 :
+===================
+
+1.WAQTD NAME OF THE EMPLOYEES EARNING MORE THAN ADAMS.
+Ans:
+	SELECT ENAME FROM EMP WHERE SAL>(SELECT SAL FROM EMP WHERE ENAME='ADAMS');
+------------------------------------------------------------------------------------------------------
+2.WAQTD NAME AND SALARY OF THE EMPLOYEES EARNING LESS THAN KING.
+Ans:
+	SELECT ENAME,SAL FROM EMP WHERE SAL<(SELECT SAL FROM EMP WHERE ENAME='KING');
+------------------------------------------------------------------------------------------------------
+3.WAQTD NAME AND DEPTNO OF THE EMPLOYEES IF THEY ARE WORKING IN THE SAME DEPT AS JONES.
+Ans:
+	SELECT ENAME,DEPTNO FROM EMP WHERE DEPTNO=(SELECT DEPTNO FROM EMP WHERE ENAME='JONES');
+------------------------------------------------------------------------------------------------------
+4.WAQTD NAME AND JOB OF ALL THE EMPLOYEES WORKING IN THE SAME DESIGNATION AS JAMES.
+Ans:
+	SELECT ENAME,JOB FROM EMP WHERE JOB=(SELECT JOB FROM EMP WHERE ENAME='JAMES');
+------------------------------------------------------------------------------------------------------	
+5.WAQTD EMPNO AND ENAME ALONG WITH ANNUAL SALARY OF ALL THE EMPLOYEES IF THEIR ANNUAL SALARY IS GREATER THAN WARDS ANNUAL SALARY.
+Ans:
+	SELECT EMPNO,ENAME,SAL*12 FROM EMP WHERE SAL*12>(SELECT SAL*12 FROM EMP WHERE ENAME='WARDS');
+------------------------------------------------------------------------------------------------------
+6.WAQTD NAME AND HIREDATE OF THE EMPLOYEES IF THEY ARE HIRED BEFORE SCOTT.
+Ans:
+	SELECT ENAME,HIREDATE FROM EMP WHERE HIREDATE<(SELECT HIREDATE FROM EMP WHERE ENAME='SCOTT');
+------------------------------------------------------------------------------------------------------
+7.WAQTD NAME AND HIREDATE OF THE EMPLOYEES IF THEY ARE HIRED AFTER THE PRESIDENT.
+Ans:
+	SELECT ENAME,HIREDATE FROM EMP WHERE HIREDATE>(SELECT HIREDATE FROM EMP WHERE JOB='PRESIDENT');
+------------------------------------------------------------------------------------------------------
+8.WAQTD NAME AND SAL OF THE EMPLOYEE IF THEY ARE EARNING SAL LESS THAN THE EMPLOYEE WHOS EMPNO IS 7839.
+Ans:
+	SELECT ENAME,SAL FROM EMP WHERE SAL<(SELECT SAL FROM EMP WHERE EMPNO=7839);
+------------------------------------------------------------------------------------------------------
+9.WAQTD ALL THE DETAILS OF THE EMPLOYEES IF THE EMPLOYEES ARE HIRED BEFORE MILLER.
+Ans:
+	SELECT * FROM EMP WHERE HIREDATE<(SELECT HIREDATE FROM EMP WHERE ENAME='MILLER');
+------------------------------------------------------------------------------------------------------
+10.WAQTD ENAME AND EMPNO OF THE EMPLOYEES IF EMPLOYEES ARE EARNING MORE THAN ALLEN.
+Ans:
+	SELECT ENAME,EMPNO FROM EMP WHERE SAL>(SELECT SAL FROM EMP WHERE ENAME='ALLEN');
+------------------------------------------------------------------------------------------------------
+11.WAQTD ENAME AND SALARY OF ALL THE EMPLOYEES WHO ARE EARNING MORE THAN MILLER BUT LESS THAN ALLEN.
+Ans:
+	SELECT ENAME,SAL FROM EMP WHERE SAL BETWEEN (SELECT SAL FROM EMP WHERE ENAME='MILLER') AND (SELECT SAL FROM EMP WHERE ENAME='ALLEN');
+------------------------------------------------------------------------------------------------------
+12.WAQTD ALL THE DETAILS OF THE EMPLOYEES WORKING IN DEPT 20 AND WORKING IN THE SAME DESIGNATION AS SMITH.
+Ans:
+	SELECT * FROM EMP WHERE DEPTNO=20 AND JOB=(SELECT JOB FROM EMP WHERE ENAME='SMITH');
+------------------------------------------------------------------------------------------------------
+13.WAQTD ALL THE DETAILS OF THE EMPLOYEES WORKING AS MANAGER IN THE SAME DEPT AS TURNER.
+Ans:
+	SELECT * FROM EMP WHERE JOB='MANAGER' AND DEPTNO=(SELECT DEPTNO FROM EMP WHERE ENAME='TURNER');
+------------------------------------------------------------------------------------------------------
+14.WAQTD NAME AND HIREDATE OF THE EMPLOYEES HIRED AFTER 1980 AND BEFORE KING.
+Ans:
+	SELECT ENAME,HIREDATE FROM EMP WHERE HIREDATE > '31-DEC-79' AND HIREDATE<(SELECT HIREDATE FROM EMP WHERE ENAME='KING');
+------------------------------------------------------------------------------------------------------
+15.WAQTD NAME AND SAL ALONG WITH ANNUAL SAL FOR ALL EMPLOYEES WHOS SAL IS LESS THAN BLAKE AND MORE THAN 3500.
+Ans:
+	SELECT ENAME,SAL,SAL*12 FROM EMP WHERE SAL>3500 AND SAL<(SELECT SAL FROM EMP WHERE ENAME='BLAKE');
+------------------------------------------------------------------------------------------------------
+16.WAQTD ALL THE DETAILS OF EMPLOYEES WHO EARN MORE THAN SCOTT BUT LESS THAN KING.
+Ans:
+	SELECT * FROM EMP WHERE SAL BETWEEN (SELECT SAL FROM EMP WHERE ENAME='SCOTT') AND (SELECT SAL FROM EMP WHERE ENAME='KING');
+------------------------------------------------------------------------------------------------------
+17.WAQTD NAME OF THE EMPLOYEES WHOS NAME STARTS WITH 'A' AND WORKS IN THE SAME DEPT AS BLAKE.
+Ans:
+	SELECT ENAME FROM EMP WHERE ENAME LIKE '%A%' AND DEPTNO IN (SELECT DEPTNO FROM EMP WHERE ENAME='BLAKE');
+------------------------------------------------------------------------------------------------------
+18.WAQTD NAME AND COMM IF EMPLOYEES EARN COMISSION AND WORK IN THE SAME DESIGNATION AS SMITH.
+Ans:
+	SELECT  ENAME,COMM FROM EMP WHERE JOB IN (SELECT JOB FROM EMP WHERE ENAME='SMITH');
+------------------------------------------------------------------------------------------------------
+19.WAQTD DETAILS OF ALL THE EMPLOYEES WORKING AS CLERK IN THE SAME DEPT AS TURNER.
+Ans:
+	SELECT * FROM EMP WHERE JOB='CLERK' AND DEPTNO=(SELECT DEPTNO FROM EMP WHERE ENAME='TURNER');
+------------------------------------------------------------------------------------------------------
+20.WAQTD ENAME, SAL AND DESIGNATION OF THE EMPLOYEES WHOS ANNUAL SALARY IS MORE THAN SMITH AND LESS THAN KING.
+Ans:
+	SELECT ENAME,SAL,JOB FROM EMP WHERE SAL*12>(SELECT SAL*12 FROM EMP WHERE ENAME='SMITH') AND SAL*12<(SELECT SAL*12 FROM EMP WHERE ENAME='KING');
+------------------------------------------------------------------------------------------------------
+
+======================
+ASSIGNMENT ON CASE 2 :
+======================
+
+21.WAQTD DNAME OF THE EMPLOYEES WHOS NAME IS SMITH.
+Ans:
+	SELECT DNAME FROM DEPT WHERE DEPTNO=(SELECT DEPTNO FROM EMP WHERE ENAME='SMITH');
+------------------------------------------------------------------------------------------------------
+22.WAQTD DNAME AND LOC OF THE EMPLOYEE WHOS ENAME IS KING.
+Ans:
+	SELECT DNAME,LOC FROM DEPT WHERE DEPTNO IN(SELECT DEPTNO FROM EMP WHERE ENAME='KING');
+------------------------------------------------------------------------------------------------------
+23.WAQTD LOC OF THE EMP WHOS EMPLOYEE NUMBER IS 7902.
+Ans:
+	SELECT LOC FROM DEPT WHERE DEPTNO IN (SELECT DEPTNO FROM EMP WHERE EMPNO=7902);
+------------------------------------------------------------------------------------------------------
+24.WAQTD DNAME AND LOC ALONG WITH DEPTNO OF THE EMPLOYEE WHOS NAME ENDS WITH 'R'.
+Ans:
+	SELECT DNAME,LOC,DEPTNO FROM DEPT WHERE DEPTNO IN (SELECT DEPTNO FROM EMP WHERE ENAME LIKE '%R');
+------------------------------------------------------------------------------------------------------
+25.WAQTD DNAME OF THE EMPLOYEE WHOS DESIGNATION IS PRESIDENT.
+Ans:
+	SELECT DNAME FROM DEPT WHERE DEPTNO IN (SELECT DEPTNO FROM EMP WHERE JOB='PRESIDENT');
+------------------------------------------------------------------------------------------------------
+26.WAQTD NAMES OF THE EMPLOYEES WORKING IN ACCOUNTING DEPARTMENT.
+Ans:
+	SELECT ENAME FROM EMP WHERE DEPTNO IN (SELECT DEPTNO FROM DEPT WHERE DNAME='ACCOUNTING');
+------------------------------------------------------------------------------------------------------
+27.WAQTD ENAME AND SALARIES OF THE EMPLOYEES WHO ARE WORKING IN THE LOCATION CHICAGO.
+Ans:
+	SELECT ENAME,SAL FROM EMP WHERE DEPTNO IN (SELECT DEPTNO FROM DEPT WHERE LOC='CHICAGO');
+------------------------------------------------------------------------------------------------------
+28.WAQTD DETAILS OF THE EMPLOYEES WORKING IN SALES.
+Ans:
+	SELECT * FROM EMP WHERE DEPTNO IN (SELECT DEPTNO FROM DEPT WHERE DNAME='SALES');
+------------------------------------------------------------------------------------------------------
+29.WAQTD DETAILS OF THE EMP ALONG WITH ANNUAL SALARY IF EMPLOYEES ARE WORKING IN NEW YORK.
+Ans:
+	SELECT EMP.*,SAL*12 FROM EMP WHERE DEPTNO IN (SELECT DEPTNO FROM DEPT WHERE LOC='NEW YORK');
+------------------------------------------------------------------------------------------------------
+30.WAQTD NAMES OF EMPLOYEES WORKING IN OPERATIONS DEPARTMENT ASSIGNMENT ON CASE 1 & 2.
+Ans:
+	SELECT ENAME FROM EMP WHERE DEPTNO IN (SELECT DEPTNO FROM DEPT WHERE DNAME='OPERATIONS');
+------------------------------------------------------------------------------------------------------
+31.WAQTD NAMES OF THE EMPLOYEES EARNING MORE THAN SCOTT IN ACCOUNTING DEPT.
+Ans:
+	SELECT ENAME FROM EMP WHERE SAL>(SELECT SAL FROM EMP WHERE ENAME='SCOTT') AND DEPTNO IN(SELECT DEPTNO FROM DEPT WHERE DNAME='ACCOUNTING');
+------------------------------------------------------------------------------------------------------	
+32.WAQTD DETAILS OF THE EMPLOYEES WORKING AS MANAGER IN THE LOCATION CHICAGO.
+Ans:
+	SELECT * FROM EMP WHERE JOB IN 'MANAGER' AND DEPTNO IN(SELECT DEPTNO FROM DEPT WHERE LOC='CHICAGO');
+------------------------------------------------------------------------------------------------------
+33.WAQTD NAME AND SAL OF THE EMPLOYEES EARNING MORE THAN KING IN THE DEPT ACCOUNTING.
+Ans:
+	SELECT ENAME, SAL FROM EMP WHERE SAL>(SELECT SAL FROM EMP WHERE ENAME='KING') AND DEPTNO IN (SELECT DEPTNO FROM DEPT WHERE DNAME='ACCOUNTING');
+------------------------------------------------------------------------------------------------------
+34.WAQTD DETAILS OF THE EMPLOYEES WORKING AS SALESMAN IN THE DEPARTEMENT SALES.
+Ans:
+	SELECT * FROM EMP WHERE JOB='SALESMAN' AND DEPTNO IN (SELECT DEPTNO FROM DEPT WHERE DNAME='SALES');
+------------------------------------------------------------------------------------------------------
+35.WAQTD NAME, SAL, JOB, HIREDATE OF THE EMPLOYEES WORKING IN OPERATIONS DEPARTMENT AND HIRED BEFORE KING.
+Ans:
+	SELECT ENAME,SAL,JOB,HIREDATE FROM EMP WHERE HIREDATE IN (SELECT HIREDATE FROM EMP WHERE ENAME='KING') AND DEPTNO IN (SELECT DEPTNO FROM DEPT WHERE DNAME='OPERATION');
+------------------------------------------------------------------------------------------------------
+36.DISPLAY ALL THE EMPLOYEES WHOSE DEPARTMET NAMES ENDING 'S'.
+Ans:
+	SELECT * FROM EMP WHERE DEPTNO IN (SELECT DEPTNO FROM DEPT WHERE DNAME LIKE '%S');
+------------------------------------------------------------------------------------------------------
+37.WAQTD DNAME OF THE EMPLOYEES WHOS NAMES HAS CHARACTER 'A'IN IT.
+Ans:
+	SELECT DNAME FROM DEPT WHERE DEPTNO IN (SELECT DEPTNO FROM EMP WHERE ENAME LIKE '%A%');
+------------------------------------------------------------------------------------------------------
+38.WAQTD DNAME AND LOC OF THE EMPLOYEES WHOS SALARY IS RUPEES 800.
+Ans:
+	SELECT DNAME, LOC FROM DEPT WHERE DEPTNO IN (SELECT DEPTNO FROM EMP WHERE SAL=800);
+------------------------------------------------------------------------------------------------------
+39.WAQTD DNAME OF THE EMPLOYEES WHO EARN COMISSION.
+Ans:
+	SELECT DNAME FROM DEPT WHERE DEPTNO IN (SELECT DEPTNO FROM EMP WHERE COMM LIKE '%');
+------------------------------------------------------------------------------------------------------
+40.WAQTD LOC OF THE EMPLOYEES IF THEY EARN COMISSION IN DEPT 40.
+Ans:
+	SELECT LOC FROM DEPT WHERE DEPTNO IN (SELECT COMM FROM EMP WHERE DEPTNO=40);
+------------------------------------------------------------------------------------------------------
+
+==================================
+ASSIGNMENT ON TYPES OF SUB QUERY :
+==================================
+
+51.WAQTD NAME OF THE EMPLOYEES EARNING SALARY MORE THAN THE SALESMAN.
+Ans:
+	SELECT ENAME FROM EMP WHERE SAL > ALL (SELECT SAL FROM EMP WHERE JOB='SALESMAN');
+------------------------------------------------------------------------------------------------------
+52.WAQTD DETAILS OF THE EMPLOYEES HIRED AFTER ALL THE CLERKS.
+Ans:
+	SELECT * FROM EMP WHERE HIREDATE >ALL(SELECT MAX(HIREDATE) FROM EMP WHERE JOB='CLERK');
+------------------------------------------------------------------------------------------------------
+53.WAQTD NAME AND SALARY FOR ALL THE EMPLOYEES IF THEY ARE EARNING LESS THAN ATLEST A MANAGER.
+Ans:
+	SELECT ENAME,SAL FROM EMP WHERE SAL<(SELECT MIN(SAL) FROM EMP WHERE JOB='MANAGER');
+------------------------------------------------------------------------------------------------------
+54.WAQTD NAME AND HIREDATE OF EMPLOYEES HIRED BEFORE ALL THE MANAGERS.
+Ans:
+	SELECT ENAME,HIREDATE FROM EMP WHERE HIREDATE < (SELECT MIN(HIREDATE) FROM EMP WHERE JOB='MANAGER');
+------------------------------------------------------------------------------------------------------
+55.WAQTD NAMES OF THE EMPLOYEES HIRED AFTER ALL THE MANAGERS AND EARNING SALARY MORE THAN ALL THE CLERKS.
+Ans:
+	SELECT ENAME FROM EMP WHERE HIREDATE > (SELECT MAX(HIREDATE) FROM EMP WHERE SAL>(SELECT MAX(SAL) FROM EMP WHERE JOB='CLERK'));
+------------------------------------------------------------------------------------------------------
+56.WAQTD DETAILS OF THE EMPLOYEES WORKING AS CLERK AND HIRED BEFORE ATLEST A SALESMAN.
+Ans:
+	SELECT * FROM EMP WHERE JOB='CLERK' AND HIREDATE <(SELECT MIN(HIREDATE) FROM EMP WHERE JOB='SALESMAN');
+------------------------------------------------------------------------------------------------------
+57.WAQTD DETAILS OF EMPLOYEES WORKING IN ACCOUNTING OR SALES DEPT.
+Ans:
+	SELECT * FROM EMP WHERE JOB='ACCOUNTING' OR DEPTNO IN (SELECT DEPTNO FROM DEPT WHERE DNAME='SALES');
+------------------------------------------------------------------------------------------------------
+58.WAQTD DEPARTMENT NAMES OF THE EMPOYEES WITH NAME SMITH, KING AND MILLER.
+Ans:
+	SELECT DNAME FROM DEPT WHERE DEPTNO IN (SELECT DEPTNO FROM EMP WHERE ENAME IN('SMITH','KING','MILLER'));
+------------------------------------------------------------------------------------------------------
+59.WAQTD DETAILS OF EMPLOYEES WORKING NEWYORK OR CHICAGO.
+Ans:
+	SELECT * FROM EMP WHERE DEPTNO IN (SELECT DEPTNO FROM DEPT WHERE LOC IN('NEWYORK','CHICAGO'));
+------------------------------------------------------------------------------------------------------
+60.WAQTD EMP NAMES IF EMPLOYEES ARE HIRED AFTER ALL THE EMPLOYEES OF DEPT 10.
+Ans:
+	SELECT ENAME FROM EMP WHERE HIREDATE>ALL(SELECT HIREDATE FROM EMP WHERE DEPTNO IN 10);
+------------------------------------------------------------------------------------------------------
+
+
+================================
+ASSIGNMENT ON NESTED SUB QUERY :
+================================
+
+61.WAQTD 2ND MINIMUM SALARY.
+Ans:
+	SELECT SAL FROM EMP WHERE SAL=(SELECT MIN(SAL) FROM EMP WHERE SAL>(SELECT MIN(SAL) FROM EMP));
+------------------------------------------------------------------------------------------------------
+62.WAQTD 5TH MAXIMUM SALARY.
+Ans:
+	SELECT SAL FROM EMP WHERE SAL=(SELECT MIN(SAL) FROM EMP WHERE SAL>(SELECT MIN(SAL) FROM EMP WHERE SAL>(SELECT MIN(SAL) FROM EMP WHERE SAL>(SELECT MIN(SAL) FROM EMP WHERE SAL>(SELECT MIN(SAL) FROM EMP)))));
+------------------------------------------------------------------------------------------------------
+63.WAQTD NAME OF THE EMPLOYEE EARNING 3RD MAXIMUM SALARY.
+Ans:
+	SELECT ENAME FROM EMP WHERE SAL IN(SELECT MAX(SAL) FROM EMP WHERE SAL<(SELECT MAX(SAL) FROM EMP WHERE SAL<(SELECT MAX(SAL) FROM EMP)));
+------------------------------------------------------------------------------------------------------
+64.WAQTD EMPNO OF THE EMPLOYEE EARNING 2D MAXIMUM SALARY.
+Ans:
+	SELECT DEPTNO FROM EMP WHERE SAL IN (SELECT MAX(SAL) FROM EMP WHERE SAL<(SELECT MAX(SAL) FROM EMP));
+------------------------------------------------------------------------------------------------------
+65.WAQTD DEPARTMENT NAME OF AN EMPLOYEE GETTING 4TH MAX SAL.
+Ans:
+	SELECT DNAME FROM DEPT WHERE DEPTNO IN(SELECT DEPTNO FROM EMP WHERE SAL=(SELECT MAX(SAL) FROM EMP WHERE SAL<(SELECT MAX(SAL) FROM EMP WHERE SAL<(SELECT MAX(SAL) FROM EMP WHERE SAL<(SELECT MAX(SAL) FROM EMP)))));
+------------------------------------------------------------------------------------------------------
+66.WAQTD DETAILS OF THE EMPLOYEE WHO WAS HIRED 2nd.
+Ans:
+	SELECT * FROM EMP WHERE HIREDATE IN(SELECT MIN(HIREDATE) FROM EMP WHERE HIREDATE>(SELECT MIN(HIREDATE) FROM EMP));
+------------------------------------------------------------------------------------------------------
+67.WAQTD NAME OF THE EMPLOYEE HIRED BEFORE THE LAST EMPLOYEE.
+Ans:
+	SELECT ENAME FROM EMP WHERE HIREDATE IN (SELECT MAX(HIREDATE) FROM EMP WHERE SAL<(SELECT MAX(SAL) FROM EMP));
+------------------------------------------------------------------------------------------------------
+68.WAQTD LOC OF THE EMPLOYEE WHO WAS HIRED FIRST.
+Ans:
+	SELECT LOC FROM DEPT WHERE DEPTNO IN (SELECT DEPTNO FROM EMP WHERE HIREDATE IN (SELECT MIN(HIREDATE) FROM EMP));
+------------------------------------------------------------------------------------------------------
+69.WAQTD DETAILS OF THE EMPLOYEE EARNING 7TH MINIMUM SALARY.
+Ans:
+	SELECT * FROM EMP WHERE SAL IN(SELECT MIN(SAL) FROM EMP WHERE SAL>(SELECT MIN(SAL) FROM EMP WHERE SAL>(SELECT MIN(SAL) FROM EMP WHERE SAL>(SELECT MIN(SAL) FROM EMP WHERE SAL>(SELECT MIN(SAL) FROM EMP WHERE SAL>(SELECT MIN(SAL) FROM EMP WHERE SAL>(SELECT MIN(SAL) FROM EMP)))))));
+------------------------------------------------------------------------------------------------------
+70.WAQTD DNAME OF EMPLOYEE GETTING 2ND MAXIMUM SALARY.
+Ans:
+	SELECT DNAME FROM DEPT WHERE DEPTNO IN(SELECT DEPTNO FROM EMP WHERE SAL<(SELECT MAX(SAL) FROM EMP));
+------------------------------------------------------------------------------------------------------

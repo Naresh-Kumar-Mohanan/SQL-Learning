@@ -1,0 +1,176 @@
+==========
+ASSIGNMENT
+==========
+
+1. WAQTD DETAILS OF THE EMPLOYEE IF THE EMPLOYEE EARNING MORE THAN 1000 BUT LESSTHAN 2000
+Ans:
+	SELECT * FROM EMP WHERE SAL>1100 AND SAL<2000;
+------------------------------------------------------------------------------------------------------
+2. WAQTD NAME OF THE EMOLOYEE IF THE EMPLOYEE START AND END WITH SAME LETTER
+Ans:
+	SELECT ENAME FROM EMP WHERE LOWER(SUBSTR(ENAME,1,1))=LOWER(SUBSTR(ENAME,-1,1));
+------------------------------------------------------------------------------------------------------
+3. WAQTD NAME AND SAL OF THE EMPLOYEE IF THE EMPLOYEE EARING SAL BUT NOT COMMISION
+Ans:
+	SELECT ENAME,SAL FROM EMP WHERE COMM IS NULL;
+------------------------------------------------------------------------------------------------------
+4. WAQTD DETAILS ALONG WITH HALF TERM SAL BY RAISING HALFTERM SALARY WITH 30 %
+Ans:
+5. WAQTD JOB WISE TOTAL SALARY
+Ans:
+	SELECT JOB,SUM(SAL) "TOTAL SALARY" FROM EMP GROUP BY JOB ORDER BY JOB;
+------------------------------------------------------------------------------------------------------
+6. WAQTD SALARIES WHICH ARE DUPLICATED IN DEPTNO 20
+Ans:
+	SELECT SAL FROM EMP WHERE DEPTNO=20 GROUP BY SAL HAVING COUNT(SAL)>1;
+------------------------------------------------------------------------------------------------------
+7. WAQTD NO OF EMPLOYEES ARE REPORTING TO 7839
+Ans:
+	SELECT COUNT(*) FROM EMP WHERE MGR=7839;
+------------------------------------------------------------------------------------------------------
+8. WAQTD NAMES OF THE EMPLOYEE IF THE EMPLOYEE SALARY NOT THERE IN THE RANGE OF 1000 AND 3000
+Ans:
+	SELECT ENAME FROM EMP WHERE SAL NOT BETWEEN 1000 AND 3000;
+------------------------------------------------------------------------------------------------------
+9. WAQTD NO OF EMPLOYEES WORKING IN EACH DEPARTMENT
+Ans:
+	SELECT DEPTNO,COUNT(*) "EMPLOYEE COUNT" FROM EMP GROUP BY DEPTNO;
+------------------------------------------------------------------------------------------------------
+10. WAQTD AVG SALARY PRESENT IN EACH DEPARTMENT
+Ans:
+	SELECT DEPTNO,AVG(SAL) "AVG SALARY" FROM EMP GROUP BY DEPTNO;
+------------------------------------------------------------------------------------------------------
+11. WAQTD MAXIMUM SALARIES WHICH ARE PRESENT IN EACH DEPARTMENT
+Ans:
+	SELECT DEPTNO,MAX(SAL) FROM EMP GROUP BY DEPTNO;
+------------------------------------------------------------------------------------------------------
+12. WAQTD NAMES OF THE EMPLOYEES IF THE EMPLOYEE NAME STARTS WITH A BUT ENDS WITH E
+Ans:
+	SELECT ENAME FROM EMP WHERE ENAME LIKE 'A%E';
+------------------------------------------------------------------------------------------------------
+13. WAQTD MIN HIREDATE PRESENT IN EACH JOB
+Ans:
+	SELECT JOB,MIN(HIREDATE) FROM EMP GROUP BY JOB;
+------------------------------------------------------------------------------------------------------
+14. WAQTD NO OF EMPLOYEES WORKING IN DEPT 10 ,20,30
+Ans:
+	SELECT DEPTNO,COUNT(*) FROM EMP GROUP BY DEPTNO;
+------------------------------------------------------------------------------------------------------
+15. WAQTD DETAILS OF THE EMPLOYEES WHO ARE HIRED ON FEB BUT NOT ON 81
+Ans:
+	SELECT * FROM EMP WHERE HIREDATE LIKE '%-FEB-%' AND HIREDATE NOT LIKE '%-%-81';
+------------------------------------------------------------------------------------------------------
+16. WAQTD AVG SAL OF MANAGERS
+Ans:
+17. WAQTD DETAILS OF THE EMPLOYEES IF THE EMPLOYEE HIRED BEFORE 83
+Ans:
+	SELECT * FROM EMP WHERE HIREDATE <'01-JAN-83';
+------------------------------------------------------------------------------------------------------
+18. WAQTD NAMES OF THE EMPLOYEES IF THE EMPLOYEE DOES NOT HAVE ANY REPORTING MANAGER
+Ans:
+	SELECT ENAME FROM EMP WHERE MGR IS NULL;
+------------------------------------------------------------------------------------------------------
+19. WAQTD UNIQUE JOBS PRESENT IN EMP TABLE
+Ans:
+	SELECT DISTINCT(JOB) FROM EMP;
+------------------------------------------------------------------------------------------------------
+20. WAQTD DETAILS OF THE EMPLOYEES WHO ARE EITHER WORKING IN DEPT 10 OR HAVING COMM MORE THAN 500
+Ans:
+	SELECT * FROM EMP WHERE DEPTNO=10 OR COMM>500;
+------------------------------------------------------------------------------------------------------
+21. WAQTD DETAILS OF THE EMPLOYEES WHOSE JOB IS NOT CLERK AND SALARY LESS THAN 2000
+Ans:
+	SELECT * FROM EMP WHERE JOB NOT IN 'CLERK' AND SAL<2000;
+------------------------------------------------------------------------------------------------------
+22. WAQTD NAMES OF THE EMPLOYEES WHOSE SALARY IS ENDING WITH 00
+Ans:
+	SELECT ENAME FROM EMP WHERE SAL LIKE '%00';
+------------------------------------------------------------------------------------------------------
+23. WAQTD EMPLOYEES WHO WERE HIRED AFTER JANUARY 1, 1981.
+Ans:
+	SELECT * FROM EMP WHERE HIREDATE > '01-JAN-81';
+------------------------------------------------------------------------------------------------------
+24. WAQTD EMPLOYEES WHO WORK IN DEPARTMENT 20 AND HAVE A SALARY GREATER THAN 2500.
+Ans:
+	SELECT * FROM EMP WHERE DEPTNO =20 AND SAL>2500;
+------------------------------------------------------------------------------------------------------
+25. WAQTD EMPLOYEES WHOSE NAME STARTS WITH 'S'.
+Ans:
+	SELECT ENAME FROM EMP WHERE ENAME LIKE 'S%';
+------------------------------------------------------------------------------------------------------	
+26. WAQTD EMPLOYEES WHO DO NOT WORK IN DEPARTMENT 30.
+Ans:
+	SELECT * FROM EMP WHERE DEPTNO NOT IN 30; --or-- SELECT * FROM EMP WHERE DEPTNO <> 30;
+------------------------------------------------------------------------------------------------------
+27. WAQTD EMPLOYEES WHO DO NOT HAVE A COMMISSION.
+Ans:
+	SELECT * FROM EMP WHERE COMM IS NULL;
+------------------------------------------------------------------------------------------------------
+28. WAQTD NUMBER OF EMPLOYEES IN EACH DEPARTMENT WHERE SALARY IS GREATER THAN 2000.
+Ans:
+	SELECT COUNT(*) "NUM OF EMP",DEPTNO FROM EMP WHERE SAL>2000 GROUP BY DEPTNO;
+------------------------------------------------------------------------------------------------------
+29. WAQTD THE AVERAGE SALARY IN EACH JOB WHERE DEPARTMENT IS 20.
+Ans:
+	SELECT AVG(SAL),JOB FROM EMP WHERE DEPTNO=20 GROUP BY JOB;
+------------------------------------------------------------------------------------------------------
+30. WAQTD MINIMUM SALARY OF EMPLOYEES IN EACH JOB WHERE COMMISSION IS NOT NULL.
+Ans:
+	SELECT MIN(SAL),JOB FROM EMP WHERE COMM IS NULL GROUP BY JOB;
+------------------------------------------------------------------------------------------------------
+31. WAQTD EMPLOYEES WHO WERE HIRED BETWEEN JANUARY 1, 1981, AND DECEMBER 31, 1982.
+Ans:
+	SELECT ENAME FROM EMP WHERE HIREDATE BETWEEN '01-JAN-81' AND '31-DEC-82';
+------------------------------------------------------------------------------------------------------
+32. WAQTD EMPLOYEES WHO DO NOT WORK IN DEPARTMENT 20 OR 30.
+Ans:
+	SELECT ENAME FROM EMP WHERE DEPTNO NOT IN (20,30);
+------------------------------------------------------------------------------------------------------
+33. WAQTD EMPLOYEES WHOSE SALARY IS EITHER LESS THAN 2000 OR GREATER THAN 5000.
+Ans:
+	SELECT ENAME FROM EMP WHERE SAL NOT BETWEEN 2000 AND 5000;
+------------------------------------------------------------------------------------------------------
+34. WAQTD EMPLOYEES WHO WERE HIRED IN EITHER 1980 OR 1981.
+Ans:
+	SELECT ENAME FROM EMP WHERE HIREDATE LIKE '%-%-80' OR HIREDATE LIKE '%-%-81';
+------------------------------------------------------------------------------------------------------
+35. WAQTD EMPLOYEES WHO DO NOT HAVE A MANAGER AND WORK IN DEPARTMENT 30.
+Ans:
+	SELECT ENAME FROM EMP WHERE MGR IS NULL AND DEPTNO=30;
+------------------------------------------------------------------------------------------------------
+36. WAQTD EMPLOYEES WHO WERE HIRED IN FEBRUARY OR MARCH.
+Ans:
+	SELECT ENAME FROM EMP WHERE HIREDATE LIKE '%-FEB-%' OR HIREDATE LIKE '%-MAR-%';
+------------------------------------------------------------------------------------------------------
+37. WAQTD SUM OF SALARY AND COMMISSION FOR EACH EMPLOYEE WHO EARNS COMMISSION.
+Ans:
+	SELECT SUM(SAL) FROM EMP WHERE COMM IS NOT NULL;
+------------------------------------------------------------------------------------------------------
+38. WAQTD EMPLOYEES WHO EARN MORE THAN 2500 AND WORK IN DEPARTMENT 20 OR 30.
+Ans:
+	SELECT SAL FROM EMP WHERE SAL>2500 AND DEPTNO NOT IN (20,30);
+------------------------------------------------------------------------------------------------------
+39. WAQTD EMPLOYEES WHO WORK IN DEPARTMENT 10 BUT ARE NOT 'MANAGERS'
+Ans:
+40. WAQTD EMPLOYEES WHO EARN A SALARY BETWEEN 3000 AND 5000 AND DO NOT HAVE A COMMISSION.
+Ans:
+41. WAQTD TOTAL COMMISSION FOR EACH DEPARTMENT WHERE COMMISSION IS NOT NULL.
+Ans:
+42. WAQTD AVERAGE SALARY IN EACH HIREDATE EXCEPT CLERKS.
+Ans:
+43. WAQTD EMPLOYEES WHO WERE HIRED IN 1980 AND EARNING COMMISSION.
+Ans:
+44. WAQTD EMPLOYEES WHOSE NAMES START WITH 'M' AND EARNING SALARY LESS THAN 4000.
+Ans:
+45. WAQTD EMPLOYEES WHO HAVE A NAME LENGTH OF 4 CHARACTERS.
+Ans:
+46. WAQTD EMPLOYEES WHOSE NAME STARTS WITH 'J' OR 'S'.
+Ans:
+47. WAQTD EMPLOYEES WHOSE COMMISSION IS EITHER NULL OR GREATER THAN 300
+Ans:
+48. WAQTD JOB AND NO OF EMPLOYEES WHERE THE SALARY IS GREATER THAN 4000.
+Ans:
+49.WAQTD NAMES OF THE EMPLOYEES IF THE EMPLOYEE EARNING SAME SAL AND COMM
+Ans:
+50. WAQTD EMPLOYEES WHOSE NAME STARTS WITH 'K' OR ENDS WITH 'N'.
+Ans:

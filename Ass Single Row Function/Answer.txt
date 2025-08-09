@@ -1,0 +1,63 @@
+===================================
+ASSIGNMENT ON SINGLE ROW FUNCTIONS:
+===================================
+
+1. List employees whose name having 4 characters
+Ans:
+	SELECT ENAME FROM EMP WHERE LENGTH(ENAME)=4;
+------------------------------------------------------------------------------------------------------
+2. List employees whose job is having 7 characters
+Ans:
+	SELECT DISTINCT(JOB) FROM EMP WHERE LENGTH(JOB)=7;
+------------------------------------------------------------------------------------------------------
+3. Find out how many times letter 'S' occurs in 'qspiders'
+Ans:
+	SELECT LENGTH('qspiders') - LENGTH(REPLACE('qspiders','s','')) AS "S OF COUNT" FROM DUAL;
+------------------------------------------------------------------------------------------------------
+4. List employees whose job is having first 3 characters as 'man'
+Ans:
+	SELECT DISTINCT(JOB) FROM EMP WHERE JOB LIKE 'MAN%';
+------------------------------------------------------------------------------------------------------
+5. Display all the names whose name is having exactly 1 'L'
+Ans:
+	SELECT ENAME FROM EMP WHERE LENGTH(ENAME) - LENGTH(REPLACE(ENAME,'L',''))=1;
+------------------------------------------------------------------------------------------------------
+6. Display dept names which are having letter 'O'
+Ans:
+	SELECT DNAME FROM DEPT WHERE DNAME LIKE '%O%';
+------------------------------------------------------------------------------------------------------
+7. Calculate number of L in string 'HELLLLL'
+Ans:
+	SELECT LENGTH('HELLLLL') - LENGTH(REPLACE('HELLLLL','L','')) AS "COUNT OF L" FROM DUAL;
+------------------------------------------------------------------------------------------------------
+8. Display all the employees whose job has a string 'MAN'
+Ans:
+	SELECT ENAME FROM EMP WHERE JOB LIKE '%MAN%';
+------------------------------------------------------------------------------------------------------
+9. Display all the employees whose job starts with string 'MAN'
+Ans:
+	SELECT  ENAME FROM EMP WHERE JOB LIKE 'MAN%';
+------------------------------------------------------------------------------------------------------
+10. Display all the employees whose job ends with string 'MAN'
+Ans:
+	SELECT ENAME FROM EMP WHERE JOB LIKE '%MAN';
+------------------------------------------------------------------------------------------------------
+11. Display first 3 characters of ename in lower case and rest everything in upper case. If ename is 'QSPIDERS' then display this as ‘qspIDERS’
+Ans:
+	SELECT LOWER(SUBSTR('QSPIDERS',1,3)) || UPPER(SUBSTR('QSPIDERS',4)) AS OUTPUT FROM DUAL;
+------------------------------------------------------------------------------------------------------
+12. Display the result from emp table as below. SMITH is a CLERK and gets salary 2000 Here SMITH is ename column, CLERK is JOB and 2000 is SAL column and rest everything is literal strings.
+Ans:
+	SELECT ENAME || ' is a ' || JOB || ' a Getting salary ' || SAL AS "EMP DETAILS" FROM EMP;
+------------------------------------------------------------------------------------------------------
+13. list the employees hired on a Wednesday
+Ans:
+	SELECT ENAME,HIREDATE FROM EMP WHERE TO_CHAR(HIREDATE,'DAY')='WEDNESDAY';
+------------------------------------------------------------------------------------------------------
+14. list the employees hired on a leap year
+Ans:
+
+15. list the employees hired on a Sunday in the month of may
+Ans:
+	SELECT ENAME, HIREDATE FROM EMP WHERE TO_CHAR (HIREDATE,'DAY')='SUNDAY' AND TO_CHAR(HIREDATE,'MONTH')='MAY';
+------------------------------------------------------------------------------------------------------

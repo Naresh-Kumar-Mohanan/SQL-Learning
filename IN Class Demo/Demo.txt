@@ -1,0 +1,74 @@
+==============
+HAVING CLAUS :
+==============
+
+1. WAQD Number of Employees Working in each department if total salary present in department exceed 10000.
+Ans:
+	SELECT COUNT(*),DEPTNO,SUM(SAL) FROM EMP GROUP BY DEPTNO HAVING SUM(SAL)>10000;
+------------------------------------------------------------------------------------------------------
+2. WAQD Max Salary Present in each job if maximum salary present in job ranges from 1000 to 3000.
+Ans:
+	SELECT MAX(SAL) FROM EMP WHERE SAL BETWEEN 1000 AND 3000 GROUP BY JOB; ---OR--- SELECT MAX(SAL) FROM EMP GROUP BY JOB HAVING MAX(SAL) BETWEEN 1000 AND 3000;
+------------------------------------------------------------------------------------------------------
+3. WAQD Number of Emp working has a clerk in each Department if the avg salary present in the Department exceed 3000 and total salary less than 9000 and at lease 2 employees are working.
+Ans:
+	SELECT COUNT(*),DEPTNO FROM EMP WHERE JOB='CLERK' GROUP BY DEPTNO HAVING AVG(SAL)>3000 AND SUM(SAL)<9000;
+------------------------------------------------------------------------------------------------------
+4. WAQD number of employee working has a manager in each department if there are at lease one employee are working.
+Ans:
+	SELECT COUNT(*) FROM EMP WHERE JOB='MANAGER' GROUP BY DEPTNO HAVING COUNT(*)>1;
+------------------------------------------------------------------------------------------------------
+5. WAQD Maximum salary earning by salesman in each department if avg salary present in the department exceed 2000 and having character A in there names.
+Ans:
+	SELECT MAX(SAL) FROM EMP WHERE JOB='SALESMAN' AND ENAME LIKE '%A%' GROUP BY DEPTNO HAVING AVG(SAL)>2000;
+------------------------------------------------------------------------------------------------------ 
+6. WAQD Salary which are repeated in emp table.
+Ans:
+	SELECT SAL FROM EMP GROUP BY SAL HAVING COUNT(SAL)>1;
+------------------------------------------------------------------------------------------------------
+7. WAQD Details of emp if they having MAN in there Job.
+Ans:
+	SELECT * FROM EMP WHERE JOB LIKE '%MAN%';
+------------------------------------------------------------------------------------------------------
+
+================
+ORDER BY CLAUS :
+================
+
+1. WAQD details of employee and arrange the Records based on the salary in assending order.
+Ans:
+	SELECT * FROM EMP ORDER BY SAL; ---OR--- SELECT * FROM EMP ORDER BY SAL ASC;
+------------------------------------------------------------------------------------------------------
+2. WAQD number of emp work in each Department as a Clerk and Arrange record based on number of emp in desc.
+Ans:
+	SELECT COUNT(*),DEPTNO FROM EMP WHERE JOB='CLERK' GROUP BY DEPTNO ORDER BY COUNT(*) DESC;
+------------------------------------------------------------------------------------------------------
+
+============
+SUB QUERRY :
+============
+
+1. WAQD details of the employee earning more than Smith.
+Ans:
+	SELECT * FROM EMP WHERE SAL>(SELECT SAL FROM EMP WHERE ENAME='SMITH'); 		
+------------------------------------------------------------------------------------------------------
+2. WAQD Number of employee hired after James.
+Ans:
+	SELECT COUNT(*) FROM EMP WHERE HIREDATE>(SELECT HIREDATE FROM EMP WHERE ENAME='JAMES');
+------------------------------------------------------------------------------------------------------
+3. WAQD Names of the employee if the employee work in same Designation as Martin.
+Ans:
+	SELECT ENAME FROM EMP WHERE JOB = (SELECT JOB FROM EMP WHERE ENAME='MARTIN');
+------------------------------------------------------------------------------------------------------
+4. WAQD details of emp if the emp work as manager and earning more than Turner.
+Ans:
+	SELECT * FROM EMP WHERE JOB ='MANAGER' AND SAL>(SELECT SAL FROM EMP WHERE ENAME='TURNER');
+------------------------------------------------------------------------------------------------------
+5. WAQD names of the employee if the employee having man in there job and hired before Scott.
+Ans:
+	SELECT ENAME FROM EMP WHERE JOB LIKE '%MAN%' AND HIREDATE<(SELECT HIREDATE FROM EMP WHERE ENAME='SCOTT');
+------------------------------------------------------------------------------------------------------
+6. WAQD name and sal of all the emp earn more than james but less than scott.
+Ans:
+	SELECT ENAME,SAL FROM EMP WHERE SAL>(SELECT SAL FROM EMP WHERE ENAME='JAMES') AND SAL<(SELECT SAL FROM EMP WHERE ENAME='SCOTT');
+------------------------------------------------------------------------------------------------------

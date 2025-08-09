@@ -1,0 +1,42 @@
+ASSIGNMENT QUESTIONS ON GROUP BY
+
+1.WAQTD NUMBER OF EMPLOYEES WORKING IN EACH DEPARTEMENT EXCEPT PRESIDENT.
+Ans:
+	SELECT COUNT(*),DEPTNO FROM EMP WHERE JOB != 'PRESIDENT' GROUP BY DEPTNO;
+------------------------------------------------------------------------------------------------------
+2.WAQTD TOTAL SALARY NEEDED TO PAY ALL THE EMPLOYEES IN EACH JOB.
+Ans:
+	SELECT SUM(SAL),COUNT(JOB),JOB FROM EMP GROUP BY JOB;
+------------------------------------------------------------------------------------------------------
+3.WAQTD NUMBER OF EMPLOYEEES WORKING AS MANAGER IN EACH DEPARTMENT.
+Ans:
+	SELECT COUNT(*),DEPTNO FROM EMP WHERE JOB='MANAGER' GROUP BY DEPTNO;
+------------------------------------------------------------------------------------------------------
+4.WAQTD AVG SALARY NEEDED TO PAY ALL THE EMPLOYEES IN EACH DEPARTMENT EXCLUDING THE EMPLOYEES OF DEPTNO 20.
+Ans:
+	SELECT AVG(SAL),DEPTNO FROM EMP WHERE DEPTNO NOT IN 20 GROUP BY DEPTNO;
+------------------------------------------------------------------------------------------------------
+5.WAQTD NUMBER OF EMPLOYEES HAVING CHARACTER 'A' IN THEIR NAMES IN EACH JOB .
+Ans:
+	SELECT COUNT(*) FROM EMP WHERE ENAME LIKE '%A%';
+------------------------------------------------------------------------------------------------------
+6.WAQTD NUMBER OF EMPLOYEES AND AVG SALARY NEEDED TO PAY THE EMPLOYEES WHO SALARY IN GREATER THAN 2000 IN EACH DEPT.
+Ans:
+	SELECT COUNT(*), AVG(SAL) FROM EMP WHERE SAL>2000 GROUP BY DEPTNO;
+------------------------------------------------------------------------------------------------------
+7.WAQDTD TOTAL SALARY NEEDED TO PAY AND NUMBER OF SALESMANS IN EACH DEPT.
+Ans:
+	SELECT SUM(SAL),DEPTNO FROM EMP WHERE ENAME NOT IN 'SALESMAN' GROUP BY DEPTNO;
+------------------------------------------------------------------------------------------------------
+8.WAQTD NUMBER OF EMPLOYEES WITH THEIR MAXIMUM SALARIES IN EACH JOB.
+Ans:
+	SELECT COUNT(*),MAX(SAL) FROM EMP GROUP BY JOB;
+------------------------------------------------------------------------------------------------------
+9.WAQTD MAXIMUM SALARIES GIVEN TO AN EMPLOYEE WORKING IN EACH DEPT.
+Ans:
+	SELECT MAX(SAL),DEPTNO FROM EMP GROUP BY DEPTNO;
+------------------------------------------------------------------------------------------------------
+10.WAQTD NUMBER OF TIMES THE SALARIES PRESENT IN EMPLOYEE TABLE.
+Ans:
+	SELECT COUNT(SAL),SAL FROM EMP GROUP BY SAL ORDER BY SAL DESC; -----> THIS WILL PRINT HIGH TO LOW VALUE IN SALARY.
+	SELECT COUNT(SAL),SAL FROM EMP GROUP BY SAL ORDER BY COUNT(SAL) ASC; ----> THIS WILL PRINT THE COUNT IN ASSENDING ORDER.

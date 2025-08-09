@@ -1,0 +1,40 @@
+1. WRITE A QUERY TO DISPLAY ALL THE DETAILS FROM THE EMPLOYEE TABLE.
+Ans:
+	SELECT * FROM EMP;
+------------------------------------------------------------------------------------------------------
+2.WAQTD NAMES OF ALL THE EMPLOYEES.
+Ans:
+	SELECT ENAME FROM EMP;
+------------------------------------------------------------------------------------------------------
+3.WAQTD NAME AND SALARY GIVEN TO ALL THE EMPLOYEES.
+Ans:
+	SELECT ENAME,SAL FROM EMP;
+------------------------------------------------------------------------------------------------------
+4.WAQTD NAME AND COMMISSION GIVEN TO ALL THE EMPLOYEES.
+Ans:
+	SELECT ENAME,COMM FROM EMP;
+------------------------------------------------------------------------------------------------------
+5.WAQTD EMPLOYEE ID AND DEPARTMENT NUMBER OF ALL THE EMPLOYEES IN EMP TABLE.
+Ans:
+	SELECT EMPID,DEPTNO FROM EMP;
+------------------------------------------------------------------------------------------------------
+6.WAQTD ENAME AND HIREDATE OF ALL THE EMPLOYEES .
+Ans:
+	SELECT ENAME,HIREDATE FROM EMP;
+------------------------------------------------------------------------------------------------------
+7.WAQTD NAME AND DESIGNATION OF ALL THE EMPLPOYEES.
+Ans:
+	SELECT ENAME,JOB FROM EMP;
+------------------------------------------------------------------------------------------------------
+8.WAQTD NAME, JOB AND SALARY GIVEN ALL THE EMPLOYEES.
+Ans:
+	SELECT ENAME,JOB,SAL FROM EMP;
+------------------------------------------------------------------------------------------------------	
+9.WAQTD DNAMES PRESENT IN DEPARTMENT TABLE.
+Ans:
+	SELECT DNAME FROM DEPT;
+------------------------------------------------------------------------------------------------------
+10.WAQTD DNAME AND LOCATION PRESENT IN DEPT TABLE.
+Ans:
+	SELECT DNAME,LOC FROM DEPT;
+------------------------------------------------------------------------------------------------------

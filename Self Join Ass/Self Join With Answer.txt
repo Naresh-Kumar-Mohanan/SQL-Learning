@@ -1,0 +1,87 @@
+=========================
+ASSIGNMENT ON SELF JOIN :
+=========================
+
+1.WAQTD NAME OF THE EMPLOYEE AND HIS MANAGER'S NAME IF EMPLOYEE IS WORKING AS CLERK.
+Ans:
+	SELECT E1.ENAME EMPNAME,E2.ENAME MGR_NAME
+	FROM EMP E1 JOIN EMP E2
+	ON E1.MGR=E2.EMPNO
+	WHERE E1.JOB='CLERK';
+------------------------------------------------------------------------------------------------------
+2.WAQTD NAME OF THE EMPLOYEE AND MANAGER'S DESIGNATION IF MANAGER WORKS IN DEPT 10 OR 20.
+Ans:
+	SELECT E1.ENAME,E2.ENAME MANAGER_NAME,E1.JOB,E2.DEPTNO
+	FROM EMP E1 JOIN EMP E2
+	ON E1.MGR=E2.EMPNO
+	WHERE E2.DEPTNO IN (10,20) ORDER BY DEPTNO;
+------------------------------------------------------------------------------------------------------
+3.WAQTD NAME OF THE EMP AND MANAGERS SALARY IF EMPLOYEE AND MANAGER BOTH EARN MORE THAN 2300.
+Ans:
+	SELECT E1.ENAME,E2.ENAME MGR_NAME,E2.SAL MGR_SAL 
+	FROM EMP E1 JOIN EMP E2
+	ON E1.MGR=E2.EMPNO
+	WHERE E1.SAL>2300;
+------------------------------------------------------------------------------------------------------
+4.WAQTD EMP NAME AND MANAGER'S HIREDATE IF EMPLOYEE WAS HIRED BEFORE 1982.
+Ans:
+	SELECT E1.ENAME EMP_NAME,E2.ENAME MGR_NAME,E1.HIREDATE EMP_HIREDATE
+	FROM EMP E1 JOIN EMP E2
+	ON E1.MGR=E2.EMPNO
+	WHERE E1.HIREDATE<'01-JAN-82';
+------------------------------------------------------------------------------------------------------
+5.WAQTD EMP NAME AND MANAGER'S COMM IF EMPLOYEE WORKS AS SALESMAN AND MANAGER WORKS IN DEPT 30.
+Ans:
+	SELECT E1.ENAME,E2.COMM MANAGER_COMM
+	FROM EMP E1 JOIN EMP E2
+	ON E1.MGR=E2.EMPNO
+	WHERE E1.JOB ='SALESMAN' AND E1.DEPTNO = 30;
+------------------------------------------------------------------------------------------------------
+6.WAQTD EMP NAME AND MANAGER NAME AND THEIR SALARIES IF EMPLOYEE EARNS MORE THAN MANAGER.
+Ans:
+	SELECT E1.ENAME,E2.ENAME "MANA NAME",E1.SAL "EMP SAL",E2.SAL "MANA SAL"
+	FROM EMP E1 JOIN EMP E2
+	ON E1.MGR=E2.EMPNO
+	WHERE E1.SAL>E2.SAL;
+------------------------------------------------------------------------------------------------------
+7.WAQTD EMP NAME AND HIREDATE , MANAGER NAME AND HIREDATE IF MANAGER WAS HIRED BEFORE EMPLOYEE.
+Ans:
+	SELECT E1.ENAME,E2.ENAME "MANAG NAME",E1.HIREDATE "EMP HIREDATE",E2.HIREDATE "MANAG HIREDATE"
+	FROM EMP E1 JOIN EMP E2
+	ON E1.EMPNO = E2.MGR
+	WHERE E1.HIREDATE>E2.HIREDATE;
+------------------------------------------------------------------------------------------------------
+8.WAQTD EMP NAME AND MANAGER NAME IF BOTH ARE WORKING IN SAME JOB.
+Ans:
+	SELECT E1.ENAME "EMP NAME",E2.ENAME "MANAG NAME" 
+	FROM EMP E1 JOIN EMP E2
+	ON E1.EMPNO=E2.MGR
+	WHERE E1.JOB=E2.JOB;
+------------------------------------------------------------------------------------------------------
+9.WAQTD EMP NAME AND MANAGER NAME IF MANAGER IS WORKING AS ACTUAL MANAGER.
+Ans:
+	SELECT E1.ENAME "EMP NAME",E2.ENAME "MANAG NAME"
+	FROM EMP E1 JOIN EMP E2
+	ON E1.EMPNO=E2.MGR
+	WHERE E2.JOB='MANAGER';
+------------------------------------------------------------------------------------------------------
+10.WAQTD EMP NAME AND MANAGER NAME ALONG WITH THEIR ANNUAL SALARIES IF EMPLOYEE WORKS IN DEPT 10 , 20 AND MANAGER'S SAL IS GREATER THAN EMPLOYEES SALARY.
+Ans:
+	SELECT E1.ENAME "EMP NAME",E1.SAL*12 "EMP SAL",E2.ENAME "MANAG NAME",E2.SAL*12 "MANAG SAL"
+	FROM EMP E1 JOIN EMP E2
+	ON E1.EMPNO=E2.MGR
+	WHERE E1.DEPTNO IN (10,20) AND E2.SAL>E1.SAL;
+------------------------------------------------------------------------------------------------------
+11.WAQTD EMPLOYEE'S NAME AND MANAGER'S DESIGNATION FOR ALL THE EMPLOYEES.
+Ans:
+	SELECT E1.ENAME,E2.ENAME "MANAG NAME", E2.JOB "MANAG JOB"
+	FROM EMP E1 JOIN EMP E2
+	ON E1.EMPNO=E2.MGR;
+------------------------------------------------------------------------------------------------------
+12.WAQTD EMPLOYEE'S NAME AND MANAGER'S SALARY FOR ALL THE EMPLOYEES IF MANAGER'S SALARY ENDS WITH 50.
+Ans:
+	SELECT DISTINCT E1.ENAME "EMP NAME",E2.SAL "MANAG SAL"
+	FROM EMP E1 JOIN EMP E2
+	ON E1.EMPNO=E2.MGR
+	WHERE E2.SAL LIKE '%50';
+------------------------------------------------------------------------------------------------------
