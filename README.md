@@ -1,14 +1,35 @@
-# SQL-Learning# Welcome to SQL-Learning
+<h1 align="center">📚 SQL-Learning Repository</h1>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?lines=Learning+SQL+Step+by+Step;Practicing+Queries+Daily;Mastering+Joins+and+Functions)](https://git.io/typing-svg)
+<p align="center">
+  <img src="https://media.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif" alt="SQL Animation" width="300"/>
+</p>
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Naresh-Kumar-Mohanan&show_icons=true&theme=radical)
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Naresh-Kumar-Mohanan&layout=compact&theme=radical)
+[![Typing SVG](https://readme-typing-svg.demolab.com?lines=Learning+SQL+Step+by+Step;Practicing+Queries+Daily;Leveling+Up+SQL+Skills)](https://git.io/typing-svg)
 
-## 📂 What’s Inside
-- SQL basics: DDL, DML, functions, joins
-- Practice scripts for real-world scenarios
-- Step-by-step walkthroughs
+---
 
-![License](https://img.shields.io/github/license/Naresh-Kumar-Mohanan/SQL-Learning)
-![Stars](https://img.shields.io/github/stars/Naresh-Kumar-Mohanan/SQL-Learning?style=social)
+## 🚀 About This Repo
+Welcome to my **SQL Learning Journey**!  
+This repository documents my step-by-step practice in mastering SQL — from the basics to advanced queries.
+
+---
+
+## 🛠 Topics Covered
+- **DDL** — Create, Alter, Drop
+- **DML** — Insert, Update, Delete
+- **Joins** — Inner, Left, Right, Full
+- **Functions** — Aggregate, Scalar, Window
+- **Optimization** — Indexes, Execution Plans
+
+---
+
+## 📌 SQL Snippet Examples
+
+**Create a Table**
+```sql
+CREATE TABLE Employees (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    position VARCHAR(50),
+    salary DECIMAL(10,2)
+);
